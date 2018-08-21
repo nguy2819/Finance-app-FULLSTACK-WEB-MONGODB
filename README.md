@@ -77,3 +77,12 @@ app.use('/api', routes);
 - Allows us to create our Models and Schemas easily
 - Created directory (named models) and a file in it (named finance.js):
 
+- In finance.js:
+```
+import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
+
+//create Finance Schema
+
+```
+
