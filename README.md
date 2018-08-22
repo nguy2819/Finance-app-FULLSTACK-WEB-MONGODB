@@ -83,6 +83,44 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 //create Finance Schema
+```
 
+## [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+- Cross-Origin Resource Sharing (CORS) is a mechanism that uses additional HTTP headers to tell a browser to let a web application running at one origin (domain) have permission to access selected resources from a server at a different origin.
+- A web application makes a cross-origin HTTP request when it requests a resource that has a different origin (domain, protocol, and port) than its own origin.
+
+## [CORS on ExpressJS](https://enable-cors.org/server_expressjs.html)
+- In index.js:
+```
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+app.get('/', function(req, res, next) {
+  // Handle the get for this route
+});
+
+app.post('/', function(req, res, next) {
+ // Handle the post for this route
+});
+```
+## To run server
+- in package.json, under scripts:
+```
+ "start-server": "npm run build-server && node dist-server/index.js",
+ "build-server": "rimraf dist-server/ && babel ./server --out-dir dist-server/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files"
+```
+
+## SUM: what we need to Install in this project
+* Express
+* Mongoose
+* Body-parser
+* babel-cli
+* babel-preset-es2015
+* rimraf 
+```
+npm install --save-dev babel-cli babel-preset-es2015 rimraf
 ```
 

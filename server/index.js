@@ -9,15 +9,25 @@ mongoose.Promise= global.Promise;
 //set up express app
 const app = express();
 
+//To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express.
+//To serve images, CSS files, and JavaScript files in a directory named public
 app.use(express.static('public'));
+
+//Use bodyParse
 app.use(bodyParser.json());
+
+//Cross-Origin Resource Sharing (CORS) on ExpressJS
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.header("Access-Control-Allow-Methods", 'DELETE, POST, GET, PUT')
     next();
   });
+
+//Use routes from './routes/api'
 app.use('/api', routes);
+
+//Use error handling
 app.use(function(err, req, res, next){
     res.status(422).send({error: err.message});
 });
