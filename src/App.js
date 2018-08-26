@@ -23,17 +23,17 @@ class App extends Component {
     this.handleUpdate = this.handleUpdate.bind(this);
   }
 
-  componentDidMount(){
-    this.getFinanceEntries();
+  componentDidMount(){ //by the garage
+    this.getFinanceEntries(); //grab all the backpack in the car with us and go up to the house
   }
 
   async getFinanceEntries(){
     const response = await fetch('http://localhost:5000/api/budget',{
-      mode: 'cors',
+      mode: 'cors', //this will tell the front-end and back-end (server) that they are okay to work together
       method: 'GET'
     });
     const responseJson = await response.json();
-    this.setState({entries: responseJson});
+    this.setState({entries: responseJson}); //get data from fetching localhost:5000 => put it in entries array as Json
   }
 
   handleSubmit = (e) => {
@@ -55,7 +55,7 @@ class App extends Component {
         "Content-type": "application/json"
       }
     }).then(data => {
-      this.getFinanceEntries();
+      this.getFinanceEntries(); //after posting data, then go get the new update data
     })
   }
 
@@ -85,7 +85,7 @@ class App extends Component {
     fetch(`http://localhost:5000/api/budget/${id}`, {
       method: 'put',
       body: data,
-      headers: {
+      headers: { //use header to tell the server what I send to it (text, image, or what type of info I send)
         "Content-type": "application/json"
       }
   }).then(data => {
@@ -94,7 +94,7 @@ class App extends Component {
   }
 
   render() {
-    const financeEntries = this.state.entries.map(e => 
+    const financeEntries = this.state.entries.map(e => //after get all the entries - map and get all the FinanceEntry.js
       <FinanceEntry 
         id={e._id}
         month={e.month} 

@@ -2,8 +2,9 @@ import express from 'express';
 import routes from './routes/api'; //import routes/api.js to use in index.js
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import config from './app.json';
 
-mongoose.connect('mongodb://localhost/financial-app');
+mongoose.connect(`mongodb://${config.databaseUser}:${config.databasePassword}@ds233212.mlab.com:33212/finance-app`);
 mongoose.Promise= global.Promise;
 
 //set up express app
