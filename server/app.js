@@ -38,6 +38,8 @@ app.get('/api', function(req, res){
     res.send({name: 'finance-app'});
 });
 
-app.listen(process.env.port || 5000, function(){
+app.listen(process.env.PORT || 5000, function(){
     console.log('Yes, we are ready to listen for request');
 });
+
+export default app;

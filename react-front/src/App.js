@@ -28,7 +28,7 @@ class App extends Component {
   }
 
   async getFinanceEntries(){
-    const response = await fetch('http://localhost:5000/api/budget',{
+    const response = await fetch('https://finance-app-fullstack-bfwbspjyyq.now.sh/api/budget',{
       mode: 'cors', //this will tell the front-end and back-end (server) that they are okay to work together
       method: 'GET'
     });
@@ -48,7 +48,7 @@ class App extends Component {
       shopping: this.state.shopping,
       medicalbills: this.state.medicalbills,
     })
-    fetch('http://localhost:5000/api/budget', {
+    fetch('https://finance-app-fullstack-bfwbspjyyq.now.sh/api/budget', {
       method: 'post',
       body: data,
       headers: {
@@ -62,7 +62,7 @@ class App extends Component {
   handleDelete(e, id){
     e.preventDefault();
     console.log('id is: ', id)
-    fetch(`http://localhost:5000/api/budget/${id}`, {
+    fetch(`https://finance-app-fullstack-bfwbspjyyq.now.sh/api/budget/${id}`, {
       method: 'delete'
     }).then(data => {
       this.getFinanceEntries();
@@ -82,7 +82,7 @@ class App extends Component {
       medicalbills: this.state.medicalbills,
     })
     console.log('id is: ', id)
-    fetch(`http://localhost:5000/api/budget/${id}`, {
+    fetch(`https://finance-app-fullstack-bfwbspjyyq.now.sh/api/budget/${id}`, {
       method: 'put',
       body: data,
       headers: { //use header to tell the server what I send to it (text, image, or what type of info I send)

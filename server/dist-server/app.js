@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
@@ -57,6 +61,8 @@ app.get('/api', function (req, res) {
     res.send({ name: 'finance-app' });
 });
 
-app.listen(process.env.port || 5000, function () {
+app.listen(process.env.PORT || 5000, function () {
     console.log('Yes, we are ready to listen for request');
 });
+
+exports.default = app;
