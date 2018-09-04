@@ -106,12 +106,13 @@ app.post('/', function(req, res, next) {
  // Handle the post for this route
 });
 ```
-## To run server
+## [To run server](https://www.codementor.io/iykyvic/writing-your-nodejs-apps-using-es6-6dh0edw2o) 
 - in package.json, under scripts:
 ```
  "start-server": "npm run build-server && node dist-server/index.js",
  "build-server": "rimraf dist-server/ && babel ./server --out-dir dist-server/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files"
 ```
+- A new start command and a new build command. ["start": "npm run build && node dist/index.js"](https://www.codementor.io/iykyvic/writing-your-nodejs-apps-using-es6-6dh0edw2o)
 
 ## SUM: what we need to Install in this project
 * Express
@@ -124,3 +125,5 @@ app.post('/', function(req, res, next) {
 npm install --save-dev babel-cli babel-preset-es2015 rimraf
 ```
 
+- We're using the Babel compiler to compile our ES6 code to ES5.
+- The Babel compiler will allow us to use the new JavaScript features in our Express app. 
