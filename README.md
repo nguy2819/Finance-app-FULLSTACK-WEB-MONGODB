@@ -1,4 +1,6 @@
 # Full-stack web application
+> ![finance-app](https://user-images.githubusercontent.com/36870689/45045502-6e490c80-b030-11e8-864b-83ffa3ff568c.png)
+
 
 ## Create SERVER first:
 
